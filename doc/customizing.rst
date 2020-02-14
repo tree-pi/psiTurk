@@ -1,14 +1,15 @@
 Customizing **psiTurk**
 ========================
 
-The ``custom.py`` file allows you to define custom “routes” or “urls” in your project. You can use this to do something in the python script. 
+Sometimes you might like to add additional urls or "routes" to your project.  For instance you could make a password protected dashboard to visualize your data as it comes in, add additional functionality to your psiturk experiment, or add more complex server-side computations (e.g., fitting a computational model to the subject in real time and using that to adapt the stimuli people view).
+
+There is a relatively easy way to add this functionality by placing a ``custom.py`` file in your project folder.  This allows you to define custom “routes” or “urls” in your project. It is based on the concept of [Flask Blueprints](https://exploreflask.com/en/latest/blueprints.html).
 
 
-
-Example: computing bonus
+Example: automatically computing performance bonus
 ------------------------
 
-It is hard to use the main task to directly modify the database. However, you may use ``custom.py`` file with a function called ``compute_bonus`` to put the correct amount of bonus in the database. The script may look like the following:
+It is hard to use the main task to directly modify the database. However, you may use ``custom.py`` file with a function called ``compute_bonus`` to put the correct amount of bonus in the database. You could do this in Javascript perhaps but the problem is that participants can modify the javascript in their browser and increase their bonus.  Instead it is better if bonuses are computed on the server side.  The ``custom.py`` script may look like the following:
 
 .. code-block:: python
 	
